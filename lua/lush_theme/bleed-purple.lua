@@ -67,7 +67,8 @@ local dark_theme = {
   alert = colors.red,
   error = colors.red_darker,
   success = colors.green,
-  warn = colors.orange
+  warn = colors.orange,
+  info = colors.blue
 }
 
 local theme = lush(function()
@@ -78,6 +79,7 @@ local theme = lush(function()
     AlertText {fg = dark_theme.alert},
     WarnText {fg = dark_theme.warn},
     SuccessText {fg = dark_theme.success},
+    InfoText {fg = dark_theme.info},
     BrandText {fg = dark_theme.text_link},
     TextAlt {fg = dark_theme.text_alt},
     TextAlt2 {fg = dark_theme.text_alt2},
@@ -125,8 +127,24 @@ local theme = lush(function()
     GitSignsAdd {SuccessText},
     GitSignsChange {WarnText},
     GitSignsDelete {AlertText},
-
     GitSignsChangeDelete {AlertText},
+
+    LspDiagnosticsError               { AlertText }, -- used for "Error" diagnostic virtual text
+    LspDiagnosticsErrorSign           { AlertText }, -- used for "Error" diagnostic signs in sign column
+    LspDiagnosticsErrorFloating       { AlertText }, -- used for "Error" diagnostic messages in the diagnostics float
+    LspDiagnosticsWarning             { WarnText }, -- used for "Warning" diagnostic virtual text
+    LspDiagnosticsWarningSign         { WarnText }, -- used for "Warning" diagnostic signs in sign column
+    LspDiagnosticsWarningFloating     { WarnText }, -- used for "Warning" diagnostic messages in the diagnostics float
+    LspDiagnosticsInformation         { InfoText }, -- used for "Information" diagnostic virtual text
+    LspDiagnosticsInformationSign     { InfoText }, -- used for "Information" signs in sign column
+    LspDiagnosticsInformationFloating { InfoText }, -- used for "Information" diagnostic messages in the diagnostics float
+    LspDiagnosticsHint                { SuccessText }, -- used for "Hint" diagnostic virtual text
+    LspDiagnosticsHintSign            { SuccessText }, -- used for "Hint" diagnostic signs in sign column
+    LspDiagnosticsHintFloating        { SuccessText }, -- used for "Hint" diagnostic messages in the diagnostics float
+    LspReferenceText                  { TabLineSel }, -- used for highlighting "text" references
+    LspReferenceRead                  { TabLineSel }, -- used for highlighting "read" references
+    LspReferenceWrite                 { TabLineSel }, -- used for highlighting "write" references
+
 
     CocHighlightText {TabLineSel},
 
