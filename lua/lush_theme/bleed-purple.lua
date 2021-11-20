@@ -79,13 +79,13 @@ local light_theme = {
 	bg_alt2 = greys["hinted-grey-13"],
 	bg_accent = purples["twitch-purple-8"],
 	bg_accent_alt = purples["twitch-purple-7"],
-	bg_accent_alt2 = purples["twitch-purple-6"],
+	bg_accent_alt2 = purples["twitch-purple-12"],
 
 	text_base = colors.black,
 	text_alt = greys["hinted-grey-7"],
 	text_alt2 = greys["hinted-grey-8"],
 	text_alt3 = greys["hinted-grey-9"],
-	text_link = purples["twitch-purple-10"],
+	text_link = purples["twitch-purple-9"],
 
 	alert = colors.red,
 	error = colors.red_darker,
@@ -152,6 +152,7 @@ local theme = lush(function()
 
 		Comment({ fg = selected_theme.text_alt3 }),
 		Cursor({ bg = selected_theme.bg_accent }),
+    Folded({ InfoText }),
 
 		CursorLine({ bg = selected_theme.bg_alt }),
 		ColorColumn({ CursorLine }),
