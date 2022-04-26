@@ -97,7 +97,6 @@ local light_theme = {
 local selected_theme = light_theme
 
 local bg = vim.o.background
--- print(">>>>>>>>>>>>>>>>>" .. bg)
 if bg == nil then
 	bg = "dark"
 	vim.o.background = bg
@@ -112,105 +111,117 @@ end
 local theme = lush(function()
 	return {
 
-		Normal({ fg = selected_theme.text_alt2, bg = selected_theme.bg_base }),
-		BgBody({ fg = selected_theme.text_base, bg = selected_theme.bg_body }),
-		AlertText({ fg = selected_theme.alert }),
-		WarnText({ fg = selected_theme.warn }),
-		SuccessText({ fg = selected_theme.success }),
-		InfoText({ fg = selected_theme.info }),
-		BrandText({ fg = selected_theme.text_link }),
-		TextAlt({ fg = selected_theme.text_alt }),
-		TextAlt2({ fg = selected_theme.text_alt2 }),
-		TextAlt3({ fg = selected_theme.text_alt3 }),
+		Normal { fg = selected_theme.text_alt2, bg = selected_theme.bg_base },
+		BgBody { fg = selected_theme.text_base, bg = selected_theme.bg_body },
+		AlertText { fg = selected_theme.alert },
+		WarnText { fg = selected_theme.warn },
+		SuccessText { fg = selected_theme.success },
+		InfoText { fg = selected_theme.info },
+		BrandText { fg = selected_theme.text_link },
+		TextAlt { fg = selected_theme.text_alt },
+		TextAlt2 { fg = selected_theme.text_alt2 },
+		TextAlt3 { fg = selected_theme.text_alt3 },
 
-		lualine_b_visual({}),
-		lualine_c_visual({}),
-		lualine_a_visual({}),
-		lualine_b_command({}),
-		lualine_c_command({}),
-		lualine_a_command({}),
-		lualine_b_normal({}),
-		lualine_c_normal({}),
-		lualine_a_normal({}),
-		lualine_b_insert({}),
-		lualine_c_insert({}),
-		lualine_a_insert({}),
-		lualine_b_replace({}),
-		lualine_c_replace({}),
-		lualine_a_replace({}),
-		lualine_b_inactive({ TextAlt3 }),
-		lualine_c_inactive({ TextAlt3 }),
-		lualine_a_inactive({ TextAlt3 }),
-		lualine_a_normal_to_lualine_b_normal({}),
-		lualine_b_normal_to_lualine_c_normal({}),
-		lualine_c_normal_to_lualine_a_normal({}),
-		lualine_c_normal_to_lualine_b_normal({}),
-		lualine_b_normal_to_lualine_a_normal({}),
-		lualine_a_command_to_lualine_b_command({}),
-		lualine_b_command_to_lualine_c_command({}),
-		lualine_c_command_to_lualine_a_command({}),
+		lualine_b_visual {},
+		lualine_c_visual {},
+		lualine_a_visual {},
+		lualine_b_command {},
+		lualine_c_command {},
+		lualine_a_command {},
+		lualine_b_normal {},
+		lualine_c_normal {},
+		lualine_a_normal {},
+		lualine_b_insert {},
+		lualine_c_insert {},
+		lualine_a_insert {},
+		lualine_b_replace {},
+		lualine_c_replace {},
+		lualine_a_replace {},
+		lualine_b_inactive { TextAlt3 },
+		lualine_c_inactive { TextAlt3 },
+		lualine_a_inactive { TextAlt3 },
+		lualine_a_normal_to_lualine_b_normal {},
+		lualine_b_normal_to_lualine_c_normal {},
+		lualine_c_normal_to_lualine_a_normal {},
+		lualine_c_normal_to_lualine_b_normal {},
+		lualine_b_normal_to_lualine_a_normal {},
+		lualine_a_command_to_lualine_b_command {},
+		lualine_b_command_to_lualine_c_command {},
+		lualine_c_command_to_lualine_a_command {},
 
-		Comment({ fg = selected_theme.text_alt3 }),
-		Cursor({ bg = selected_theme.bg_accent }),
-    Folded({ InfoText }),
+		Comment { fg = selected_theme.text_alt3 },
+		Cursor { bg = selected_theme.bg_accent },
+    Folded { InfoText },
 
-		CursorLine({ bg = selected_theme.bg_alt }),
-		ColorColumn({ CursorLine }),
+		CursorLine { bg = selected_theme.bg_alt },
+		ColorColumn { CursorLine },
 
-		Conceal({ TextAlt3 }),
-		NonText({ TextAlt3 }),
-		TODO({ BrandText }),
+		Conceal { TextAlt3 },
+		NonText { TextAlt3 },
+		TODO { BrandText },
 
-		LineNr({ TextAlt3 }),
-		CursorLineNr({ BrandText }),
+		LineNr { TextAlt3 },
+		CursorLineNr { BrandText },
 
-		SignColumn({}),
-		Search({ gui = "underline" }),
-		IncSearch({ Search }), -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+		SignColumn {},
+		Search { gui = "underline" },
+		IncSearch { Search }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 
-		MatchParen({ bg = selected_theme.bg_accent_alt2 }), -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-		Visual({ bg = selected_theme.bg_accent, fg = colors.white }),
+		MatchParen { bg = selected_theme.bg_accent_alt2 }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+		Visual { bg = selected_theme.bg_accent, fg = colors.white },
 
-		Title({ BrandText, gui = "bold" }), -- titles for output from ":set all", ":autocmd" etc.
-		TabLine({ bg = selected_theme.bg_base }), -- tab pages line, not active tab page label
-		TabLineFill({ bg = selected_theme.bg_base }), -- tab pages line, where there are no labels
-		TabLineSel({ TextAlt, bg = selected_theme.bg_alt2 }), -- tab pages line, active tab page label
+		Title { BrandText, gui = "bold" }, -- titles for output from ":set all", ":autocmd" etc.
+		TabLine { bg = selected_theme.bg_base }, -- tab pages line, not active tab page label
+		TabLineFill { bg = selected_theme.bg_base }, -- tab pages line, where there are no labels
+		TabLineSel { TextAlt, bg = selected_theme.bg_alt2 }, -- tab pages line, active tab page label
 
-		Pmenu({ TextAlt, bg = selected_theme.bg_alt }), -- Popup menu: normal item.
-		PmenuSel({ fg = selected_theme.text_base, bg = selected_theme.bg_accent }), -- Popup menu: selected item.
+		Pmenu { TextAlt, bg = selected_theme.bg_alt }, -- Popup menu: normal item.
+		PmenuSel { fg = selected_theme.text_base, bg = selected_theme.bg_accent }, -- Popup menu: selected item.
 
-		PmenuSbar({}), -- Popup menu: scrollbar.
+		PmenuSbar {}, -- Popup menu: scrollbar.
 
-		DiffAdd({ fg = selected_theme.bg_base, bg = selected_theme.success }),
-		DiffChange({ fg = selected_theme.warn, gui = "underline" }),
-		DiffDelete({ fg = selected_theme.bg_base, bg = selected_theme.alert }),
-		DiffText({ fg = selected_theme.bg_base, bg = selected_theme.warn }),
+		DiffAdd { fg = selected_theme.bg_base, bg = selected_theme.success },
+		DiffChange { fg = selected_theme.warn, gui = "underline" },
+		DiffDelete { fg = selected_theme.bg_base, bg = selected_theme.alert },
+		DiffText { fg = selected_theme.bg_base, bg = selected_theme.warn },
 
-		ErrorMsg({ AlertText }),
-		VertSplit({ BrandText }),
+    -- Git
+    diffRemoved { AlertText },
+    diffAdded  { SuccessText },
 
-		GitSignsAdd({ SuccessText }),
-		GitSignsChange({ WarnText }),
-		GitSignsDelete({ AlertText }),
-		GitSignsChangeDelete({ AlertText }),
+    diffOldFile { fg = selected_theme.bg_base, bg = selected_theme.success },
+    diffNewFile  { fg = selected_theme.bg_base, bg = selected_theme.alert },
 
-		LspDiagnosticsError({ AlertText }), -- used for "Error" diagnostic virtual text
-		LspDiagnosticsErrorSign({ AlertText }), -- used for "Error" diagnostic signs in sign column
-		LspDiagnosticsErrorFloating({ AlertText }), -- used for "Error" diagnostic messages in the diagnostics float
-		LspDiagnosticsWarning({ WarnText }), -- used for "Warning" diagnostic virtual text
-		LspDiagnosticsWarningSign({ WarnText }), -- used for "Warning" diagnostic signs in sign column
-		LspDiagnosticsWarningFloating({ WarnText }), -- used for "Warning" diagnostic messages in the diagnostics float
-		LspDiagnosticsInformation({ InfoText }), -- used for "Information" diagnostic virtual text
-		LspDiagnosticsInformationSign({ InfoText }), -- used for "Information" signs in sign column
-		LspDiagnosticsInformationFloating({ InfoText }), -- used for "Information" diagnostic messages in the diagnostics float
-		LspDiagnosticsHint({ SuccessText }), -- used for "Hint" diagnostic virtual text
-		LspDiagnosticsHintSign({ SuccessText }), -- used for "Hint" diagnostic signs in sign column
-		LspDiagnosticsHintFloating({ SuccessText }), -- used for "Hint" diagnostic messages in the diagnostics float
-		LspReferenceText({ TabLineSel }), -- used for highlighting "text" references
-		LspReferenceRead({ TabLineSel }), -- used for highlighting "read" references
-		LspReferenceWrite({ TabLineSel }), -- used for highlighting "write" references
 
-		CocHighlightText({ TabLineSel }),
+    diffChanged  { fg = selected_theme.warn, gui = "underline" },
+    diffFile  { WarnText },
+    diffLine  { fg = colors.blue },
+
+		ErrorMsg { AlertText },
+		VertSplit { BrandText },
+
+		GitSignsAdd { SuccessText },
+		GitSignsChange { WarnText },
+		GitSignsDelete { AlertText },
+		GitSignsChangeDelete { AlertText },
+
+		LspDiagnosticsError { AlertText }, -- used for "Error" diagnostic virtual text
+		LspDiagnosticsErrorSign { AlertText }, -- used for "Error" diagnostic signs in sign column
+		LspDiagnosticsErrorFloating { AlertText }, -- used for "Error" diagnostic messages in the diagnostics float
+		LspDiagnosticsWarning { WarnText }, -- used for "Warning" diagnostic virtual text
+		LspDiagnosticsWarningSign { WarnText }, -- used for "Warning" diagnostic signs in sign column
+		LspDiagnosticsWarningFloating { WarnText }, -- used for "Warning" diagnostic messages in the diagnostics float
+		LspDiagnosticsInformation { InfoText }, -- used for "Information" diagnostic virtual text
+		LspDiagnosticsInformationSign { InfoText }, -- used for "Information" signs in sign column
+		LspDiagnosticsInformationFloating { InfoText }, -- used for "Information" diagnostic messages in the diagnostics float
+		LspDiagnosticsHint { SuccessText }, -- used for "Hint" diagnostic virtual text
+		LspDiagnosticsHintSign { SuccessText }, -- used for "Hint" diagnostic signs in sign column
+		LspDiagnosticsHintFloating { SuccessText }, -- used for "Hint" diagnostic messages in the diagnostics float
+		LspReferenceText { TabLineSel }, -- used for highlighting "text" references
+		LspReferenceRead { TabLineSel }, -- used for highlighting "read" references
+		LspReferenceWrite { TabLineSel }, -- used for highlighting "write" references
+
+		CocHighlightText { TabLineSel },
 
 		-- These groups are not listed as default vim groups,
 		-- but they are defacto standard group names for syntax highlighting.
@@ -218,19 +229,19 @@ local theme = lush(function()
 		-- default,
 		-- Uncomment and edit if you want more specific syntax highlighting.
 
-		Constant({ TextAlt, gui = "bold" }), -- (preferred) any constant
+		Constant { TextAlt, gui = "bold" }, -- (preferred) any constant
 		-- String         { }, --   a string constant: "this is a string"
 		-- Character      { }, --  a character constant: 'c', '\n'
 		-- Number         { }, --   a number constant: 234, 0xff
 		-- Boolean        { }, --  a boolean constant: TRUE, false
 		-- Float          { }, --    a floating point constant: 2.3e10
 
-		Identifier({ fg = selected_theme.text_alt }), -- (preferred) any variable name
-		TSFunction({ BrandText }), -- function name (also: methods for classes)
-		TSMethod({ TSFunction }), -- function name (also: methods for classes)
+		Identifier { fg = selected_theme.text_alt }, -- (preferred) any variable name
+		TSFunction { BrandText }, -- function name (also: methods for classes)
+		TSMethod { TSFunction }, -- function name (also: methods for classes)
 		-- goFunctionCall { Function },
 
-		Statement({ TextAlt2, gui = "bold" }), -- (preferred) any statement
+		Statement { TextAlt2, gui = "bold" }, -- (preferred) any statement
 		-- Conditional    { }, --  if, then, else, endif, switch, etc.
 		-- Repeat         { }, --   for, do, while, etc.
 		-- Label          { }, --    case, default, etc.
@@ -238,18 +249,18 @@ local theme = lush(function()
 		-- Keyword        { }, --  any other keyword
 		-- Exception      { }, --  try, catch, throw
 
-		PreProc({ Statement }), -- (preferred) generic Preprocessor
+		PreProc { Statement }, -- (preferred) generic Preprocessor
 		-- Include        { }, --  preprocessor #include
 		-- Define         { }, --   preprocessor #define
 		-- Macro          { }, --    same as Define
 		-- PreCondit      { }, --  preprocessor #if, #else, #endif, etc.
 
-		Type({ SuccessText, gui = "bold" }), -- (preferred) int, long, char, etc.
-		StorageClass({ Type }), -- static, register, volatile, etc.
+		Type { SuccessText, gui = "bold" }, -- (preferred) int, long, char, etc.
+		StorageClass { Type }, -- static, register, volatile, etc.
 		-- Structure      { }, --  struct, union, enum, etc.
 		-- Typedef        { }, --  A typedef
 
-		Special({ SuccessText }), -- (preferred) any special symbol
+		Special { SuccessText }, -- (preferred) any special symbol
 		-- SpecialChar    { }, --  special character in a constant
 		-- Tag            { }, --    you can use CTRL-] on this
 		-- Delimiter      { }, --  character that needs attention
@@ -263,22 +274,22 @@ local theme = lush(function()
 		-- ("Ignore", below, may be invisible...)
 		-- Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
-		Error({ AlertText }), -- (preferred) any erroneous construct
+		Error { AlertText }, -- (preferred) any erroneous construct
 
 		-- Todo           { }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
-		StartifyNumber({ TextAlt2 }),
-		StartifyBracket({ TextAlt }),
-		StartifySection({ Title }),
-		StartifyPath({ TextAlt2 }),
-		StartifySlash({ TextAlt }),
-		StartifyFile({ StorageClass }),
+		StartifyNumber { TextAlt2 },
+		StartifyBracket { TextAlt },
+		StartifySection { Title },
+		StartifyPath { TextAlt2 },
+		StartifySlash { TextAlt },
+		StartifyFile { StorageClass },
 
-		Directory({ SuccessText }),
+		Directory { SuccessText },
 
-		NvimTreeRootFolder({ BrandText }),
-		NvimTreeFolderIcon({ fg = SuccessText.fg.darken(50) }),
-		NvimTreeFolderName({ SuccessText }),
+		NvimTreeRootFolder { BrandText },
+		NvimTreeFolderIcon { fg = SuccessText.fg.darken(50) },
+		NvimTreeFolderName { SuccessText },
 		--     NvimTreeIndentMarker {fg = gray},
 		--     NvimTreeSymlink {fg = cyan, gui = underline_strings},
 		--     NvimTreeEmptyFolderName {fg = comment_gray},
@@ -324,7 +335,7 @@ local theme = lush(function()
 		-- TSConstructor        { };    -- For constructor calls and definitions: ` { }` in Lua, and Java constructors.
 		-- TSConditional        { };    -- For keywords related to conditionnals.
 		-- TSConstant           { };    -- For constants
-		TSConstBuiltin({ Constant }), -- For constant that are built in the language: `nil` in Lua.
+		TSConstBuiltin { Constant }, -- For constant that are built in the language: `nil` in Lua.
 		-- TSConstMacro         { };    -- For constants that are defined by macros: `NULL` in C.
 		-- TSError              { };    -- For syntax/parser errors.
 		-- TSException          { };    -- For exception related keywords.
@@ -341,13 +352,13 @@ local theme = lush(function()
 		-- TSNamespace          { };    -- For identifiers referring to modules and namespaces.
 		-- TSNone               { };    -- TODO: docs
 		-- TSNumber             { };    -- For all numbers
-		TSOperator({ TextAlt }), -- For any operator: `+`, but also `->` and `*` in C.
+		TSOperator { TextAlt }, -- For any operator: `+`, but also `->` and `*` in C.
 		-- TSParameter          { };    -- For parameters of a function.
 		-- TSParameterReference { };    -- For references to parameters of a function.
 		-- TSProperty           { };    -- Same as `TSField`.
-		TSPunctDelimiter({ TextAlt }), -- For delimiters ie: `.`
-		TSPunctBracket({ TextAlt }), -- For brackets and parens.
-		TSPunctSpecial({}), -- For special punctutation that does not fall in the catagories before.
+		TSPunctDelimiter { TextAlt }, -- For delimiters ie: `.`
+		TSPunctBracket { TextAlt }, -- For brackets and parens.
+		TSPunctSpecial {}, -- For special punctutation that does not fall in the catagories before.
 		-- TSRepeat             { };    -- For keywords related to loops.
 		-- TSString             { };    -- For strings.
 		-- TSStringRegex        { };    -- For regexes.
