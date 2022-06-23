@@ -48,6 +48,8 @@ local colors = {
 	green_dark = hsl(156, 100, 40),
 	green_darker = hsl(172, 100, 34),
 	blue = hsl(220, 100, 56),
+  magenta = hsl(311, 100, 82),
+  magenta_dark = hsl(311, 80, 43)
 }
 
 local dark_theme = {
@@ -65,6 +67,7 @@ local dark_theme = {
 	text_alt3 = greys["hinted-grey-6"],
 	text_link = purples["twitch-purple-10"],
 
+  secondary = colors.magenta,
 	alert = colors.red,
 	error = colors.red_darker,
 	success = colors.green,
@@ -87,6 +90,7 @@ local light_theme = {
 	text_alt3 = greys["hinted-grey-9"],
 	text_link = purples["twitch-purple-9"],
 
+  secondary = colors.magenta_dark,
 	alert = colors.red,
 	error = colors.red_darker,
 	success = colors.green_dark,
@@ -118,6 +122,7 @@ local theme = lush(function()
 		SuccessText { fg = selected_theme.success },
 		InfoText { fg = selected_theme.info },
 		BrandText { fg = selected_theme.text_link },
+		Secondary { fg = selected_theme.secondary },
 		TextAlt { fg = selected_theme.text_alt },
 		TextAlt2 { fg = selected_theme.text_alt2 },
 		TextAlt3 { fg = selected_theme.text_alt3 },
@@ -255,12 +260,12 @@ local theme = lush(function()
 		-- Macro          { }, --    same as Define
 		-- PreCondit      { }, --  preprocessor #if, #else, #endif, etc.
 
-		Type { SuccessText, gui = "bold" }, -- (preferred) int, long, char, etc.
+		Type { Secondary, gui = "bold" }, -- (preferred) int, long, char, etc.
 		StorageClass { Type }, -- static, register, volatile, etc.
 		-- Structure      { }, --  struct, union, enum, etc.
 		-- Typedef        { }, --  A typedef
 
-		Special { SuccessText }, -- (preferred) any special symbol
+		Special { Secondary }, -- (preferred) any special symbol
 		-- SpecialChar    { }, --  special character in a constant
 		-- Tag            { }, --    you can use CTRL-] on this
 		-- Delimiter      { }, --  character that needs attention
@@ -285,11 +290,11 @@ local theme = lush(function()
 		StartifySlash { TextAlt },
 		StartifyFile { StorageClass },
 
-		Directory { SuccessText },
+		Directory { Secondary },
 
 		NvimTreeRootFolder { BrandText },
-		NvimTreeFolderIcon { fg = SuccessText.fg.darken(50) },
-		NvimTreeFolderName { SuccessText },
+		NvimTreeFolderIcon { fg = Secondary.fg.darken(50) },
+		NvimTreeFolderName { Secondary },
 		--     NvimTreeIndentMarker {fg = gray},
 		--     NvimTreeSymlink {fg = cyan, gui = underline_strings},
 		--     NvimTreeEmptyFolderName {fg = comment_gray},
