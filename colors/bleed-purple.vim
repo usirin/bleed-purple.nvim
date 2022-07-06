@@ -1,5 +1,5 @@
 " You probably always want to set this in your vim file
-set background=dark
+" set background=dark
 let g:colors_name="bleed-purple"
 
 " By setting our module to nil, we clear lua's cache,
