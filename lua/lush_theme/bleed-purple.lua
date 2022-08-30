@@ -220,6 +220,7 @@ local theme = lush(function()
     CocWarningFloat { WarnText },
     CocInfoFloat { InfoText },
     CocHintFloat { InfoText },
+    CocNotificationProgress { CocPumMenu },
 
     TelescopeMatching { CocPumSearch },
     TelescopeSelection { CocMenuSel },
