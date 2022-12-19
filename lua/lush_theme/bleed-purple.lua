@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-global
-local lush = require("lush")
+local lush = require "lush"
 local hsl = lush.hsl
 
 local purples = {
@@ -50,7 +50,7 @@ local colors = {
   green_darker = hsl(172, 100, 34),
   blue = hsl(220, 100, 56),
   magenta = hsl(311, 100, 82),
-  magenta_dark = hsl(311, 80, 43)
+  magenta_dark = hsl(311, 80, 43),
 }
 
 local dark_theme = {
@@ -64,7 +64,7 @@ local dark_theme = {
   bg_accent_alt3 = purples["twitch-purple-5"],
   bg_accent_alt4 = purples["twitch-purple-4"],
 
-  brand_muted = colors.twitch_purple.darken(75),
+  brand_muted = colors.twitch_purple.darken(70),
   brand_contrast = colors.twitch_purple.lighten(75),
 
   text_base = greys["hinted-grey-14"],
@@ -180,7 +180,6 @@ local theme = lush(function()
     diffOldFile { fg = selected_theme.bg_base, bg = selected_theme.success },
     diffNewFile { fg = selected_theme.bg_base, bg = selected_theme.alert },
 
-
     diffChanged { fg = selected_theme.warn, gui = "underline" },
     diffFile { WarnText },
     diffLine { fg = colors.blue },
@@ -213,7 +212,7 @@ local theme = lush(function()
     CocPumMenu { Pmenu }, -- Popup menu: normal item.
     CocMenuSel { bg = selected_theme.bg_accent_alt3 }, -- Popup menu: selected item.
     CocPumSearch { fg = selected_theme.text_link, bg = nil },
-    CocHintSign { Comment },
+    CocHintSign { Comment, gui = "italic" },
     CocFloating { CocPumMenu },
     CocFloatingBorder { BrandText },
     CocErrorFloat { AlertText },
@@ -226,7 +225,6 @@ local theme = lush(function()
     TelescopeSelection { CocMenuSel },
 
     IndentBlanklineContextStart { bg = selected_theme.brand_muted, gui = nil },
-
 
     Constant { TextAlt, gui = "bold" }, -- (preferred) any constant
     -- String         { }, --   a string constant: "this is a string"
@@ -289,6 +287,15 @@ local theme = lush(function()
     NvimTreeRootFolder { BrandText },
     NvimTreeFolderIcon { fg = Secondary.fg.darken(50) },
     NvimTreeFolderName { Secondary },
+
+    NvimTreeGitDirty { WarnText },
+    NvimTreeGitStaged { SuccessText },
+    NvimTreeGitMerge { AlertText },
+    NvimTreeGitRenamed { WarnText },
+    NvimTreeGitNew { SuccessText },
+    NvimTreeGitDeleted { AlertText },
+    NvimTreeGitIgnored { Comment },
+
     --     NvimTreeIndentMarker {fg = gray},
     --     NvimTreeSymlink {fg = cyan, gui = underline_strings},
     --     NvimTreeEmptyFolderName {fg = comment_gray},
@@ -357,10 +364,10 @@ local theme = lush(function()
     -- TSAttribute          { };    -- (unstable) TODO: docs
     -- TSBoolean            { };    -- For booleans.
     -- TSCharacter          { };    -- For characters.
-    TSComment { Comment }; -- For comment blocks.
-    TSConstructor { gui = "bold", BrandText }; -- For constructor calls and definitions: ` { }` in Lua, and Java constructors.
+    TSComment { Comment }, -- For comment blocks.
+    TSConstructor { gui = "bold", BrandText }, -- For constructor calls and definitions: ` { }` in Lua, and Java constructors.
     -- TSConditional        { };    -- For keywords related to conditionnals.
-    TSConstant { Constant }; -- For constants
+    TSConstant { Constant }, -- For constants
     TSConstBuiltin { Constant }, -- For constant that are built in the language: `nil` in Lua.
     -- TSConstMacro         { };    -- For constants that are defined by macros: `NULL` in C.
     -- TSError              { };    -- For syntax/parser errors.
@@ -395,9 +402,9 @@ local theme = lush(function()
     -- TSVariable           { };    -- Any variable name that does not have another highlight.
     -- TSVariableBuiltin    { };    -- Variable names that are defined by the languages, like `this` or `self`.
 
-    TSTag { BrandText }; -- Tags like html tag names.
-    tsxTSTag { BrandText }; -- Tags like html tag names.
-    TSTagDelimiter { TSPunctDelimiter }; -- Tag delimiter like `<` `>` `/`
+    TSTag { BrandText }, -- Tags like html tag names.
+    tsxTSTag { BrandText }, -- Tags like html tag names.
+    TSTagDelimiter { TSPunctDelimiter }, -- Tag delimiter like `<` `>` `/`
     -- TSText               { };    -- For strings considered text in a markup language.
     -- TSEmphasis           { };    -- For text to be represented with emphasis.
     -- TSUnderline          { };    -- For text to be represented with an underline.
